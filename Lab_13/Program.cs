@@ -8,15 +8,19 @@ namespace Lab_13
 {
     class Program
     {
-        private static object Player;
 
         static void Main(string[] args)
         {
             bool run = true;
             string response;
-            RandomPlayer randomPlayer = new RandomPlayer();
+           // string Name = "";
+            RandomPlayer randomPlayer = new RandomPlayer("computer");
             RockPlayer rockPlayer = new RockPlayer();
             UserPlayer userPlayer = new UserPlayer();
+
+
+            Roshambo user;
+            Roshambo computer;
 
             Console.WriteLine("Welcome to Roshambo");
             Console.Write("Please enter your name ");
@@ -29,23 +33,22 @@ namespace Lab_13
                 {
                     Console.WriteLine("Enter your selection: (1)rock  (2)paper (3)scissors");
 
-                    Console.WriteLine(userPlayer.GenerateRoshambo());
+                    Console.WriteLine($"{userPlayer.Name}: {user = userPlayer.GenerateRoshambo()}");
+                    Console.WriteLine($"{randomPlayer.Name}: {computer = randomPlayer.GenerateRoshambo()}");
                     Console.ReadKey();
-
-                    for (int i = 0; i < 2; i++)
+                    Console.WriteLine(PickWinner(user, computer));
+                    Console.WriteLine("Would you like to play again(y/n)");
+                    string choice = Console.ReadLine();
+                    if (choice == "y")
                     {
-                        Console.WriteLine(randomPlayer.GenerateRoshambo());
-                    }
-                    for (int i = 0; i < 2; i++)
-                    {
-                        Console.WriteLine(rockPlayer.GenerateRoshambo());
+                        run = true;
                     }
 
-                    Console.ReadKey();
-                }
-                else
-                {
-                    break;
+                    else
+                    {
+
+                        run = false;
+                    }
                 }
             }
         }
@@ -62,7 +65,7 @@ namespace Lab_13
                 {
                     return "You Won!!!";
                 }
-                return "You Lost :(";
+                return "You Lost :";
             }
             else if (user == Roshambo.Paper)
             {
@@ -109,28 +112,8 @@ namespace Lab_13
     }
 
 }
-//RandomPlayer rp = new RandomPlayer();
-//            RockPlayer rock = new RockPlayer();
-//            UserPlayer up = new UserPlayer();
-//            Console.WriteLine("Welcome to Rock Paper Scissor!(R/P/S)");
-//            Console.WriteLine("Enter your Name");
-//            Player.Name = Console.ReadLine();
-//            Console.WriteLine($"Would you like to play against Thejets or TheSharks (j/s)?:");
-//            choice1 = Console.ReadLine();
 
             
             
                 
-//                Console.WriteLine("Enter rock(1) paper(2) Scissors(3)");
-//            //Console.WriteLine($"UserPlayer : {up.Name}");
-//               Console.WriteLine(up.GenersteRoshambo());
-
-//            for (int i = 0; i < 10; i++)
-//            {
-//                Console.WriteLine(rp.GenersteRoshambo());
-//            }
-
-//        }
-//        }
-//    }
 

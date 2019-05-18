@@ -9,19 +9,17 @@ namespace Lab_13
 {
     class RandomPlayer:Player
     {
-        //public static int GetRandomNum()
-        //{
-        //    Random rnd = new Random();
-        //    int value = rnd.Next(1, 4);
-        //    return value;
-        //}
+    
+        public RandomPlayer(string _name)
+        {
+            Name = "Computer";
+        }
         Random randomRoll = new Random();
 
         public override Roshambo GenerateRoshambo()
         {
             return (Roshambo)randomRoll.Next(0, 3);
         }
-
-       
+ 
     }
 }
